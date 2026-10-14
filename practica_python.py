@@ -86,4 +86,96 @@ def ordenados(s:list[int]) -> bool:
     
     
 
-print(ordenados([1,3,3,22]))
+#print(ordenados([1,3,3,22]))
+
+
+
+def pos_maximo(s:list[int]) -> int:
+    max_actual: int = s[0]
+    pos_maximo_actual: int = 0 
+    
+    
+    for i in range(len(s)-1):
+        if max_actual < s[i+1]:
+            max_actual = s[i+1]
+            pos_maximo_actual = i + 1
+            
+        
+    return pos_maximo_actual
+
+
+
+
+#print(pos_maximo([22,13333,300]))
+
+
+
+def pos_minimo(s:list[int]) -> int:
+    min_actual: int = s[0]
+    pos_min_actual: int = 0
+    
+    
+    for i in range(len(s)-1):
+        if min_actual > s[i+1]:
+            min_actual = s[i+1]
+            pos_min_actual = i + 1
+            
+    return pos_min_actual
+
+
+
+
+#print(pos_minimo([120,340,45,5]))        
+
+
+
+
+
+def long_mayor_a_siete(s:str) -> bool:
+    res: bool = False
+    cantidad: int = 0 
+    
+    for letra in s:
+        cantidad += 1
+        
+        if cantidad > 7:
+            res = True
+            
+    return res 
+
+
+
+#print(long_mayor_a_siete("Termo"))
+            
+    
+    
+    
+
+def long_mayor_ASiete(s:list[str]) -> bool:
+    res: bool = False
+    
+    for palabra in s:
+        if long_mayor_a_siete(palabra):
+            res = True
+            
+            
+    return res 
+
+
+#print(long_mayor_ASiete(["termo", "gato", "tener", "jirafas"]))
+
+
+
+def iguales_consecutivos(s:list[int]) -> bool:
+    res: bool = True
+    
+    for i in range(len(s)-1):
+        if s[i] != s[i+1]:
+            res = False
+            
+    return res 
+
+
+
+print(iguales_consecutivos([1,1,3,4]))
+
